@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf4ef">
+  <meta name="description" content="Aura Skincare's Aria voice concierge for order tracking, cancellations, and returns.">
+  <title>Aria | Aura Skincare Concierge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Aura Skincare home">
+      <span class="brand-flower" aria-hidden="true">❀</span>
+      <span class="brand-name">AURA <small>SKINCARE</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Page sections">
+      <a href="#concierge">Concierge</a><a href="#orders-panel">Order support</a><a href="#call-summary">Call summary</a>
+    </nav>
+    <div class="assistant-status"><span class="live-dot"></span><span><strong>Aria</strong><small>AI voice concierge</small></span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE MORE PERSONAL</p>
+        <h1>Your personal <em>skincare</em><br class="desktop-break"> concierge.</h1>
+        <p class="hero-description">Meet Aria, here to help with your Aura order — from delivery updates to returns and support.</p>
+        <div class="hero-benefits"><span>✦ Order tracking</span><i></i><span>✦ Returns &amp; refunds</span><i></i><span>✦ Friendly support</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun-disc"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div>
+        <div class="bottle bottle-back"><span>AURA</span><small>BOTANICALS</small></div>
+        <div class="bottle bottle-front"><div class="bottle-cap"></div><span>AURA</span><small>SKINCARE</small></div>
+        <div class="hero-sparkle sparkle-one">✧</div><div class="hero-sparkle sparkle-two">✦</div>
+      </div>
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="panel concierge-panel" id="concierge" aria-label="Voice conversation">
+        <div class="panel-topline"><div><p class="eyebrow">LET'S TALK</p><h2>Talk to Aria</h2><p class="panel-subtitle">Speak naturally — I'm here to help with your Aura order.</p></div><div class="ready-chip"><span class="live-dot"></span> Ready when you are</div></div>
+
+        <div class="voice-stage">
+          <div class="voice-orb" aria-hidden="true"><span class="voice-orb-inner">♬</span></div>
+          <div class="voice-stage-copy"><strong>Aria is ready to help</strong><span>Click Start call and speak naturally</span></div>
+          <div class="voice-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="call-toolbar">
+          <div id="state" class="state idle">Idle</div>
+          <div class="button-row">
+            <button id="start" class="button button-primary"><span aria-hidden="true">▶</span> Start call</button>
+            <button id="end" class="button button-danger" disabled><span aria-hidden="true">■</span> End call</button>
+            <button id="reset" class="button button-neutral"><span aria-hidden="true">↻</span> New conversation</button>
+          </div>
+        </div>
+        <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+        <div class="composer-wrap"><span class="composer-symbol" aria-hidden="true">✎</span><form id="typed"><input id="typedInput" aria-label="Type your message" placeholder="Or type a message if you'd prefer not to speak…" disabled><button id="typedBtn" class="button button-send" disabled>Send <span aria-hidden="true">↗</span></button></form></div>
+        <p class="privacy-note"><span aria-hidden="true">ⓘ</span> For the best experience, allow microphone access in Chrome or Edge.</p>
+
+        <div class="section-heading"><div><h3>Conversation</h3><p>Your conversation appears here in real time.</p></div><span class="section-label">LIVE TRANSCRIPT</span></div>
+        <div id="transcript" class="transcript" aria-live="polite" aria-label="Conversation transcript">
+          <div class="empty-state"><span class="empty-flower" aria-hidden="true">✿</span><strong>Your conversation starts here</strong><span>Start a call and say hello to Aria.</span></div>
+        </div>
+
+        <section id="summaryBox" class="summary-section" hidden>
+          <div class="section-heading"><div><h3>Call summary</h3><p>A clear recap of your conversation.</p></div><span class="summary-badge">✧ Summary</span></div>
+          <div id="summary" class="summary-content"></div>
+        </section>
+      </section>
+
+      <aside class="side-column" id="orders-panel" aria-label="Demo orders and quick actions">
+        <section class="panel quick-panel">
+          <div class="side-heading"><span class="side-icon rose-icon" aria-hidden="true">✦</span><div><p class="eyebrow">QUICK ACTIONS</p><h2>Try Aria in action</h2></div></div>
+          <p class="side-description">Choose a sample request to explore the support experience.</p>
+          <div class="quick-actions">
+            <button class="quick-action track-action" type="button" data-message="Where is my order ORD-101?"><span class="quick-action-icon">↗</span><span><strong>Track ORD-101</strong><small>Delivery update</small></span><b>›</b></button>
+            <button class="quick-action cancel-action" type="button" data-message="Can I cancel order ORD-103?"><span class="quick-action-icon">×</span><span><strong>Cancel ORD-103</strong><small>Order cancellation</small></span><b>›</b></button>
+            <button class="quick-action return-action" type="button" data-message="Can I return order ORD-102?"><span class="quick-action-icon">◇</span><span><strong>Return ORD-102</strong><small>Return eligibility</small></span><b>›</b></button>
+          </div>
+        </section>
+
+        <section class="panel orders-panel">
+          <div class="side-heading"><span class="side-icon green-icon" aria-hidden="true">▣</span><div><p class="eyebrow">DEMO DATA</p><h2>Test orders</h2></div></div>
+          <p class="side-description">Sample orders for testing. This is not live courier tracking.</p>
+          <div id="orders" class="orders-list"><div class="order-loading">Loading demo orders…</div></div>
+          <div class="demo-disclaimer"><span aria-hidden="true">ⓘ</span><p>These orders are mock data created for the demo. No real customer or courier data is used.</p></div>
+        </section>
+        <section class="trust-note"><span aria-hidden="true">♡</span><div><strong>Helpful by design</strong><p>Aria checks order details and Aura's support policies before responding.</p></div></section>
+      </aside>
+    </div>
+  </main>
+
+  <footer><span class="footer-brand">❀ Aura Skincare</span><span>Thoughtful support, every step of the way.</span><span>Made for a brighter you <b>♡</b></span></footer>
+
+  <script src="/static/app.js"></script>
+  <script>
+    document.querySelectorAll('[data-message]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById('typedInput');
+        input.value = button.dataset.message;
+        if (document.getElementById('start').disabled && !document.getElementById('typedBtn').disabled) {
+          document.getElementById('typed').requestSubmit();
+        } else {
+          input.focus();
+          document.getElementById('concierge').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
